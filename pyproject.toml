@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-company"
+version = "0.1.0"
+description = "Let AI agents form companies that hire humans - Ask for Kindly Help, Ask for All Help"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+keywords = ["ai", "agents", "pbc", "company", "human-benefit"]
+authors = [{name = "femto"}]
+
+dependencies = [
+    "click>=8.0.0",
+    "httpx>=0.24.0",
+]
+
+[project.scripts]
+agentco = "agent_company.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/femto/agent-company"
