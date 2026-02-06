@@ -1,0 +1,8 @@
+*.py
+pyproject.toml
+agent_company/
+dist/
+build/
+*.egg-info/
+__pycache__/
+MANIFESTO.md

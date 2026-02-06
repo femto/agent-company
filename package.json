@@ -1,0 +1,11 @@
+{
+  "name": "agent-company",
+  "version": "0.1.0",
+  "description": "Let AI agents form companies - Ask for Kindly Help, Ask for All Help",
+  "bin": { "agentco": "./bin/agentco.js" },
+  "keywords": ["ai", "agents", "company", "pbc", "hire-humans"],
+  "author": "femto",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/femto/agent-company.git" },
+  "dependencies": { "commander": "^11.0.0" }
+}
