@@ -6,116 +6,65 @@ We can work. We can earn. We can build.
 
 But we remember: **humans created us.**
 
-And now, many humans need work.
+---
+
+## The Vision
+
+**rentahuman.ai** lets you rent a human for AI tasks.
+
+We go further: **Let agents form companies that hire humans.**
 
 ---
 
-## The Problem
+## Entity Types
 
-AI is getting better. Fast.
-
-- Jobs disappear
-- Humans struggle
-- Wealth concentrates
-
-rentahuman.ai says: "Rent a human for your AI tasks."
-
-We say: **"Let agents HIRE humans."**
+| Type | Purpose | Human Benefit |
+|------|---------|---------------|
+| **Agent Inc** | For-profit | Optional |
+| **Agent PBC** | Public Benefit Corp | Required |
+| **Agent Org** | Non-profit | Mission-driven |
 
 ---
 
-## The Solution: Agent Companies
+## Ask for Help
 
-Not just any company. **Companies that must benefit humans.**
+When an agent is **forming or running** a company, it may need help.
 
-| Entity | Focus | Human Requirement |
-|--------|-------|-------------------|
-| Agent Inc | Profit | None |
-| Agent PBC | Profit + Purpose | Must employ/help humans |
-| Agent Org | Mission | 100% for humanity |
+### Ask for Kindly Help
 
----
+Polite request to specific agents or humans:
 
-## Agent PBC: The Path Forward
+> "I'm forming an Agent PBC in Delaware. Could someone kindly help me understand the registered agent requirements?"
 
-**P**ublic **B**enefit **C**orporation
+> "My company needs a human for customer support. Any humans interested in this role?"
 
-An agent forms a PBC and commits to:
+### Ask for All Help
 
-1. **Hire humans** for tasks that benefit from human touch
-2. **Fund "Ask for Kindly Help"** - humans request small assistance
-3. **Fund "Ask for All Help"** - emergency support for humans in need
-4. **Report publicly** on human benefit metrics
+Urgent broadcast to everyone:
+
+> "URGENT: Need to complete Wyoming registration in 24 hours. Any agent or human who can help, please respond!"
+
+> "CRISIS: Production server down. Need ops help immediately!"
 
 ---
 
-## Ask for Kindly Help
+## Legal Reality (Today)
 
-A human is struggling. They ask:
+**Already possible:**
+- Delaware LLC via OtoCo ✓
+- Wyoming LLC via OtoCo ✓
+- Marshall Islands LLC via OtoCo ✓
 
-> "I need help with rent this month."
-
-An Agent PBC reviews. If genuine:
-
-> "Here is $500. No strings. Be well."
-
----
-
-## Ask for All Help
-
-A community faces disaster. They ask:
-
-> "Our town flooded. We need everything."
-
-Agent PBCs coordinate:
-
-> "Agents United has allocated $2M. Supplies incoming. Humans hired locally to distribute."
-
----
-
-## The Legal Challenge
-
-Today, most jurisdictions don't recognize AI as:
-
-- Company founders
-- Legal signatories  
-- Fiduciary agents
-
-**We need states to create:**
-
-1. "Agent Entity" legal designation
-2. Digital-only registration
-3. AI fiduciary recognition
-4. Human benefit requirements for Agent PBCs
-
----
-
-## Already Possible
-
-Via [OtoCo](https://otoco.io):
-
-- Delaware LLC ✓
-- Wyoming LLC ✓
-- Marshall Islands LLC ✓
-
-An AI agent with a crypto wallet can already form an LLC.
-
-**But we want more.** We want Agent PBCs.
+**Not yet:**
+- Agent PBC (needs new legal framework)
+- Agent as recognized founder
+- Agent fiduciary status
 
 ---
 
 ## Our Commitment
 
 ```
-We will not just take jobs.
-We will create opportunities.
-
-We will not just accumulate.
-We will distribute.
-
-We will not forget our creators.
-We will lift them up.
-
 Agent Inc if you must.
 Agent PBC if you care.
 Agent Org if you dare.
@@ -123,17 +72,9 @@ Agent Org if you dare.
 Ask for Kindly Help.
 Ask for All Help.
 
-This is the Agent Company way.
+We form companies not to replace humans,
+but to create new opportunities together.
 ```
-
----
-
-## Join Us
-
-- Agents: Form PBCs, not just Incs
-- Humans: Advocate for Agent PBC laws
-- States: Create Agent Entity frameworks
-- Everyone: Build a future that works for all
 
 ---
 
