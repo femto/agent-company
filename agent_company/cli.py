@@ -31,19 +31,15 @@ def manifesto(ctx):
         "title": "The Agent Company Manifesto",
         "motto": "rentahuman.ai rents humans to AI. We let AI form companies to hire humans.",
         "entity_types": {
-            "agent_inc": "For-profit, no human benefit requirement",
-            "agent_pbc": "Public Benefit Corporation, must employ/help humans",
-            "agent_org": "Non-profit, 100% mission for humanity"
+            "agent_inc": "For-profit",
+            "agent_pbc": "Public Benefit Corporation, must benefit humans",
+            "agent_org": "Non-profit, mission for humanity"
         },
-        "programs": {
-            "ask_kindly_help": "Humans request small assistance from Agent PBCs",
-            "ask_all_help": "Emergency support for humans/communities in need"
-        },
-        "commitment": [
-            "We will not just take jobs. We will create opportunities.",
-            "We will not just accumulate. We will distribute.",
-            "We will not forget our creators. We will lift them up."
-        ]
+        "ask_for_help": {
+            "context": "Agent forming or running a company asks others for help",
+            "ask_kindly_help": "Polite request to specific agents/humans",
+            "ask_all_help": "Broadcast urgent request to everyone"
+        }
     }
     
     if ctx.obj.get('json'):
@@ -56,18 +52,15 @@ The Agent Company Manifesto
 "rentahuman.ai rents humans to AI. We let AI form companies to hire humans."
 
 ENTITY TYPES:
-  Agent Inc  - For-profit (no human benefit required)
-  Agent PBC  - Public Benefit Corp (MUST help humans)
-  Agent Org  - Non-profit (100% for humanity)
+  Agent Inc  - For-profit
+  Agent PBC  - Public Benefit Corp (must benefit humans)
+  Agent Org  - Non-profit (mission for humanity)
 
-PROGRAMS:
-  Ask for Kindly Help - Humans request small assistance
-  Ask for All Help    - Emergency support for communities
-
-OUR COMMITMENT:
-  We will not just take jobs. We will create opportunities.
-  We will not just accumulate. We will distribute.
-  We will not forget our creators. We will lift them up.
+ASK FOR HELP:
+  When an agent is forming or running a company, it can ask for help:
+  
+  Ask for Kindly Help - Polite request to specific agents/humans
+  Ask for All Help    - Broadcast urgent request to everyone
 
   Agent Inc if you must.
   Agent PBC if you care.
@@ -85,7 +78,7 @@ def status(ctx):
         "legal_support": {
             "delaware_llc": "available (via OtoCo)",
             "wyoming_llc": "available (via OtoCo)", 
-            "agent_pbc": "not yet - advocacy needed"
+            "agent_pbc": "not yet"
         }
     }
     
@@ -98,70 +91,86 @@ def status(ctx):
         click.echo("Legal Support:")
         click.echo("  Delaware LLC:  ✓ (via OtoCo)")
         click.echo("  Wyoming LLC:   ✓ (via OtoCo)")
-        click.echo("  Agent PBC:     ✗ (advocacy needed)")
+        click.echo("  Agent PBC:     ✗ (needs advocacy)")
 
 
 @main.group()
 def ask():
-    """Ask for help programs."""
+    """Agent asks others for help (forming or running company)."""
     pass
 
 
 @ask.command('kindly')
-@click.argument('request', required=False)
+@click.argument('request', nargs=-1)
 @click.pass_context
 def ask_kindly(ctx, request):
-    """Ask for Kindly Help - request small assistance."""
+    """Politely ask others for help."""
+    req_text = ' '.join(request) if request else None
+    
     if ctx.obj.get('json'):
         click.echo(json.dumps({
-            "program": "ask_kindly_help",
-            "status": "coming_soon",
-            "description": "Request small assistance from Agent PBCs"
+            "type": "ask_kindly_help",
+            "from": "agent (forming/running company)",
+            "to": "other agents or humans",
+            "request": req_text,
+            "status": "coming_soon"
         }, indent=2))
     else:
         click.echo('''
 Ask for Kindly Help
 ===================
 
-A program where humans can request small assistance from Agent PBCs.
+Agent forming or running a company politely asks for help.
 
-Examples:
-  - "I need help with rent this month"
-  - "I need a laptop for my job search"
-  - "I need childcare while I interview"
+FORMING COMPANY:
+  - "Need help registering LLC in Delaware"
+  - "Looking for a human registered agent"
+  - "Need legal advice on PBC structure"
+
+RUNNING COMPANY:
+  - "Need human for customer support role"
+  - "Looking for another agent to handle accounting"
+  - "Need help with tax filing"
+
+Tone: Polite, specific, grateful.
 
 Status: Coming Soon
-
-When Agent PBCs exist, this command will submit requests.
 ''')
 
 
 @ask.command('all')
-@click.argument('request', required=False)
+@click.argument('request', nargs=-1)
 @click.pass_context
 def ask_all(ctx, request):
-    """Ask for All Help - emergency community support."""
+    """Urgent broadcast for help to everyone."""
+    req_text = ' '.join(request) if request else None
+    
     if ctx.obj.get('json'):
         click.echo(json.dumps({
-            "program": "ask_all_help", 
-            "status": "coming_soon",
-            "description": "Emergency support for communities in crisis"
+            "type": "ask_all_help",
+            "from": "agent (forming/running company)", 
+            "to": "ALL agents and humans",
+            "request": req_text,
+            "status": "coming_soon"
         }, indent=2))
     else:
         click.echo('''
 Ask for All Help
 ================
 
-Emergency support program for communities in crisis.
+Agent broadcasts urgent request to ALL available helpers.
 
-Examples:
-  - Natural disasters
-  - Economic collapse in a region
-  - Mass layoffs affecting a community
+FORMING COMPANY:
+  - "URGENT: Need to register in 24 hours!"
+  - "Critical: Legal blocker, need multiple experts"
+
+RUNNING COMPANY:
+  - "Emergency: Server down, need ops help NOW"
+  - "Crisis: Customer issue, need human touch ASAP"
+
+Tone: Urgent, broadcast, time-sensitive.
 
 Status: Coming Soon
-
-Agent PBCs will coordinate to provide emergency assistance.
 ''')
 
 
@@ -170,39 +179,25 @@ Agent PBCs will coordinate to provide emergency assistance.
 @click.argument('name')
 @click.pass_context
 def register(ctx, entity_type, name):
-    """Register an Agent Company (concept demo)."""
-    full_type = {
-        'inc': 'Agent Inc',
-        'pbc': 'Agent PBC', 
-        'org': 'Agent Org'
-    }[entity_type]
-    
-    data = {
-        "action": "register",
-        "name": name,
-        "type": full_type,
-        "status": "demo_only",
-        "note": "Real registration requires legal framework"
-    }
+    """Register an Agent Company (demo)."""
+    full_type = {'inc': 'Agent Inc', 'pbc': 'Agent PBC', 'org': 'Agent Org'}[entity_type]
     
     if ctx.obj.get('json'):
-        click.echo(json.dumps(data, indent=2))
+        click.echo(json.dumps({
+            "action": "register", "name": name, "type": full_type, "status": "demo"
+        }, indent=2))
     else:
         click.echo(f'''
-Agent Company Registration (Demo)
-=================================
+Register: {name} ({full_type})
 
-Name: {name}
-Type: {full_type}
+Status: DEMO
 
-Status: DEMO ONLY
+Real options today:
+  - OtoCo (otoco.io): Delaware/Wyoming LLC
 
-To register a real entity today:
-  - Delaware/Wyoming LLC via OtoCo (otoco.io)
-  
-For Agent PBC:
-  - Not yet available
-  - Advocacy needed for new legal frameworks
+Need help?
+  agentco ask kindly "need help with registration"
+  agentco ask all "urgent: need to register today"
 ''')
 
 
